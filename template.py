@@ -172,7 +172,7 @@ while (is_running):
 
     # Spawn the next enemy if 100 loops have passed by
     if enemy_timer <= 0:
-        
+
         enemieslist.append(Enemy(2.5))
         enemy_timer = 100
     
@@ -197,7 +197,7 @@ while (is_running):
     # Else, display the game over screen
     else:
 
-        DISPLAY_SURF.blit(text, textRect)
+        DISPLAY_SURF.blit(text, text_rect)
 
     # End of if-else
 
