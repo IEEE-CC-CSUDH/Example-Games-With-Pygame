@@ -230,7 +230,7 @@ while (is_running):
         # Look through all of the enemies in enemieslist
         for i in range(len(enemieslist)):
 
-            enemieslist.__getitem__(i).draw()                          # Draw the enemies
+            enemieslist[i].draw()                                      # Draw the enemies
 
     # Else, display the game over screen
     else:
