@@ -263,7 +263,7 @@ while (is_running):
         # Check every enemy on the enemieslist
         for i in range(len(enemieslist)):
 
-            curr_enemy = enemieslist.__getitem__(i)
+            curr_enemy = enemieslist[i]
             curr_enemy.move(player.positionx, player.positiony)
             player.check_collision(curr_enemy)
 
