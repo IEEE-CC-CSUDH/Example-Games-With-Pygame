@@ -55,8 +55,15 @@ class Enemy:
 
     # Move the enemy accordingly to a player's x and y position
     def move(self, player_x: int, player_y: int):
-        self.positionx += (self.speed * 0.5) if (player_x >= self.positionx) else (-0.5 * self.speed)
-        self.positiony += (self.speed * 0.5) if (player_y >= self.positiony) else (-0.5 * self.speed)
+        if (player_x >= self.positionx):
+            self.positionx += (self.speed * 0.5) 
+        else:
+            self.positionx += (-0.5 * self.speed)
+
+        if (player_y >= self.positiony):
+            self.positiony += (self.speed * 0.5) 
+        else:
+            self.positiony += (-0.5 * self.speed)
         pass
 
 # Class definition of a Player
@@ -92,17 +99,46 @@ class Player:
 
         self.positionx += self.velocity_x
         self.positiony += self.velocity_y
+        pass
     
     # Set the speed according to the key pressed
     def set_speed(self, event):
         if event.key == K_UP and self.velocity_y == 0:
-            self.velocity_y = (-1 * self.SPEED) if self.velocity_x == 0 else (-0.8 * self.SPEED)
+
+            if self.velocity_x == 0:
+                self.velocity_y = (-1 * self.SPEED)
+                
+            else:
+                self.velocity_y = (-0.8 * self.SPEED)
+
         elif event.key == K_DOWN and self.velocity_y == 0:
-            self.velocity_y = self.SPEED if self.velocity_x == 0 else (0.8 * self.SPEED)
+            
+            if self.velocity_x == 0:
+
+                self.velocity_y = self.SPEED
+            else:
+
+                self.velocity_y = (0.8 * self.SPEED)
+
         elif event.key == K_LEFT and self.velocity_x == 0:
-            self.velocity_x = -1 * self.SPEED if self.velocity_y == 0 else (-0.8 * self.SPEED)
+            
+            if self.velocity_y == 0:
+
+                self.velocity_x = -1 * self.SPEED
+            else:
+
+                self.velocity_x = (-0.8 * self.SPEED)
+
         elif event.key == K_RIGHT and self.velocity_x == 0:
-            self.velocity_x = self.SPEED if self.velocity_y == 0 else (0.8 * self.SPEED)
+            
+            if self.velocity_y == 0:
+
+                self.velocity_x = self.SPEED
+            
+            else:
+                
+                self.velocity_x = (0.8 * self.SPEED)
+        pass
 
     # Halt the player when no keys are pressed
     def stop(self, event):
@@ -130,6 +166,7 @@ class Player:
 
             if abs(self.velocity_y) < self.SPEED:
                 self.velocity_y *= 1.25
+        pass
 
     # Check if the player collided with an enemy
     def check_collision(self, enemy: Enemy):
@@ -141,6 +178,7 @@ class Player:
     # Kill the player
     def kill_player(self):
         self.is_dead = True
+        pass
     
     # Check if the player is dead
     def check_dead(self) -> bool:
