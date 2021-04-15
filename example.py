@@ -1,6 +1,6 @@
 #
 #
-#   This template was created as a reference Python program 
+#   This example was created as a reference Python program 
 #   for the IEEE CC's 2021 Game Jam
 #   
 #   ===================== Details =========================
